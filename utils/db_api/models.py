@@ -29,7 +29,7 @@ class School(Base):
     yonalish = Column(Text)
     qabul = Column(String(150))
     savollar = Column(Text)
-    boglanish = Column(String(150))
+    boglanish = Column(Text)
 
 
 class College(Base):
@@ -42,7 +42,7 @@ class College(Base):
     yonalish = Column(Text)
     qabul = Column(String(150))
     savollar = Column(Text)
-    boglanish = Column(String(150))
+    boglanish = Column(Text)
 
 
 class Texnikum(Base):
@@ -55,7 +55,7 @@ class Texnikum(Base):
     yonalish = Column(Text)
     qabul = Column(String(150))
     savollar = Column(Text)
-    boglanish = Column(String(150))
+    boglanish = Column(Text)
 
 
 class Lyceum(Base):
@@ -68,4 +68,4 @@ class Lyceum(Base):
     yonalish = Column(Text)
     qabul = Column(String(150))
     savollar = Column(Text)
-    boglanish = Column(String(150))
+    boglanish = Column(Text)
