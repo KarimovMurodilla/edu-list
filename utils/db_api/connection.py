@@ -67,3 +67,75 @@ class Database:
 
             response = await session.execute(select(User))
             return response.scalars().all()
+
+
+    # ---School model---
+
+    async def get_school_data(self, name) -> School:
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(School).where(School.nomi == name))
+            return response.scalar()
+    
+
+    async def get_all_school_names(self):
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(School.nomi))
+            return response.scalars().all()
+
+
+    # ---College model---
+
+    async def get_college_data(self, name) -> College:
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(College).where(College.nomi == name))
+            return response.scalar()
+
+
+    async def get_all_college_names(self):
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(College.nomi))
+            return response.scalars().all()
+
+
+    # ---Texnikum model---
+
+    async def get_texnikum_data(self, name) -> Texnikum:
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(Texnikum).where(Texnikum.nomi == name))
+            return response.scalar()
+
+
+    async def get_all_texnikum_names(self):
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(Texnikum.nomi))
+            return response.scalars().all()
+
+
+    # ---Lyceum model---
+
+    async def get_lyceum_data(self, name) -> Lyceum:
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(Lyceum).where(Lyceum.nomi == name))
+            return response.scalar()
+
+
+    async def get_all_lyceum_names(self):
+        async with self.async_session() as session:
+            session: AsyncSession
+
+            response = await session.execute(select(Lyceum.nomi))
+            return response.scalars().all()

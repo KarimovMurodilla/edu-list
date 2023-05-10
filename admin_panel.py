@@ -15,44 +15,48 @@ admin = Admin(app, engine)
 
 
 class UserAdmin(ModelView, model=User):
-    column_list = [User.user_id, User.username, User.first_name, User.last_name]
+    column_list = [User.user_id, User.username, User.first_name]
     can_create = False
     can_edit = False
     can_delete = False
     icon = "fa-solid fa-user"
+    name_plural = "Foydalanuvchilar"
 
 
 class SchoolAdmin(ModelView, model=School):
     column_list = [
-        School.id, School.malumot, School.rahbariyat, 
+        School.malumot, School.rahbariyat, 
         School.yonalish, School.qabul, School.savollar, School.boglanish
     ]
     icon = "fa-solid fa-university"
+    name_plural = "Kasb-hunar maktabi"
 
    
 class CollegeAdmin(ModelView, model=College):
     column_list = [
-        College.id, College.malumot, College.rahbariyat, 
+        College.malumot, College.rahbariyat, 
         College.yonalish, College.qabul, College.savollar, College.boglanish
     ]
     icon = "fa-solid fa-university"
+    name_plural = "Kollej"
 
    
 class TexnikumAdmin(ModelView, model=Texnikum):
     column_list = [
-        Texnikum.id, Texnikum.malumot, Texnikum.rahbariyat, 
+        Texnikum.malumot, Texnikum.rahbariyat, 
         Texnikum.yonalish, Texnikum.qabul, Texnikum.savollar, Texnikum.boglanish
     ]
     icon = "fa-solid fa-university"
+    name_plural = "Texnikum"
 
 
 class LyceumAdmin(ModelView, model=Lyceum):
     column_list = [
-        Lyceum.id, Lyceum.malumot, Lyceum.rahbariyat, 
+        Lyceum.malumot, Lyceum.rahbariyat, 
         Lyceum.yonalish, Lyceum.qabul, Lyceum.savollar, Lyceum.boglanish
     ]
     icon = "fa-solid fa-university"
-
+    name_plural = "Litsey"
    
 
 admin.add_view(UserAdmin)
