@@ -25,10 +25,9 @@ async def bot_start(message: types.Message, state: FSMContext):
 @dp.message_handler(text='Ortga qaytish', state='*')
 async def bot_start(message: types.Message, state: FSMContext):
     cur_state = await state.get_state()
-    print(cur_state)
     
     # Schools
-    if cur_state == 'ProfiEduDetails:step1' or not cur_state:
+    if cur_state == 'ProfiEduDetails:step1' or not cur_state or cur_state == 'ProfiEduDetails:step2':
         await state.finish()
         await message.answer("OTFIV_Tashkent", reply_markup=keyboard_buttons.main_category())
 
@@ -38,20 +37,8 @@ async def bot_start(message: types.Message, state: FSMContext):
             await ProfiEduDetails.step1.set()
 
     elif cur_state == 'ProfiEduDetails:step4':
-        school = await db.get_all_school_names()
-        college = await db.get_all_college_names()
-        texnikum = await db.get_all_texnikum_names()
-
-        edu_data = {
-            "Kasb-hunar maktabi": school,
-            "Kollej": college,
-            "OTM huzuridagi texnikum": texnikum,
-        }        
-        async with state.proxy() as data:
-            edu_type_name = data["edu_type_name"]
-        await message.answer("Tanlang:", reply_markup=keyboard_buttons.show_names(edu_data.get(edu_type_name)))    
-
-        await ProfiEduDetails.step2.set()
+        await message.answer("Tanlang:", reply_markup=keyboard_buttons.edu_data_menu())
+        await ProfiEduDetails.step3.set()
 
     # Lyceums
     elif cur_state == 'LyceumDetails:step1':
@@ -61,7 +48,7 @@ async def bot_start(message: types.Message, state: FSMContext):
     elif cur_state == 'LyceumDetails:step2':
         names = await db.get_all_lyceum_names()
 
-        await message.answer("Tanlang:", reply_markup=keyboard_buttons.show_names(names).add(types.KeyboardButton("Ortga qaytish")))
+        await message.answer("Tanlang:", reply_markup=keyboard_buttons.show_names(names))
         await LyceumDetails.step1.set()
 
     elif cur_state == 'LyceumDetails:step3':

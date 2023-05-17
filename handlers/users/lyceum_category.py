@@ -15,7 +15,7 @@ async def bot_start(message: types.Message, state: FSMContext):
     await state.finish()
     names = await db.get_all_lyceum_names()
 
-    await message.answer("Tanlang:", reply_markup=keyboard_buttons.show_names(names).add(types.KeyboardButton("Ortga qaytish")))
+    await message.answer("Tanlang:", reply_markup=keyboard_buttons.show_names(names))
     await LyceumDetails.step1.set()
 
 

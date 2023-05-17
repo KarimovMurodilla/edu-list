@@ -49,5 +49,8 @@ def show_names(names):
     for name in names:
         menu.add(name)
 
+    back = types.KeyboardButton("Ortga qaytish")
+
+    menu.add(back)
     return menu
    
