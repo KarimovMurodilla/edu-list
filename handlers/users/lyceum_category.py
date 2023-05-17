@@ -10,7 +10,7 @@ from loader import dp, db
 
 
 # ---Back button---
-@dp.message_handler(text="Akademik litseylar", state='*')
+@dp.message_handler(text="🏛 Akademik litseylar", state='*')
 async def bot_start(message: types.Message, state: FSMContext):
     await state.finish()
     names = await db.get_all_lyceum_names()
@@ -37,15 +37,15 @@ async def process_lyceum_info(message: types.Message, state: FSMContext):
         lyceum = data.get("lyceum")
 
     edu_data = {
-        "Umumiy ma'lumot": lyceum.malumot,
-        "Rahbariyat": lyceum.rahbariyat,
-        "Yo'nalishi": lyceum.yonalish,
-        "Qabul": lyceum.qabul,
-        "Ko'p beriladigan savollar": lyceum.savollar,
-        "Bog'lanish": lyceum.boglanish,
+        "ℹ️ Umumiy ma'lumot": lyceum.malumot,
+        "🏢 Rahbariyat": lyceum.rahbariyat,
+        "🎯 Yo'nalishi": lyceum.yonalish,
+        "📥 Qabul": lyceum.qabul,
+        "❓Ko'p beriladigan savollar": lyceum.savollar,
+        "📞 Bog'lanish": lyceum.boglanish,
     }
 
-    if message.text == "Umumiy ma'lumot":
+    if message.text == "ℹ️ Umumiy ma'lumot":
         await message.answer(edu_data.get(message.text), reply_markup=keyboard_buttons.back())
         await LyceumDetails.next()
 

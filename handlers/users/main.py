@@ -22,7 +22,7 @@ async def bot_start(message: types.Message, state: FSMContext):
 
 
 # ---Back button---
-@dp.message_handler(text='Ortga qaytish', state='*')
+@dp.message_handler(text='🔙 Ortga qaytish', state='*')
 async def bot_start(message: types.Message, state: FSMContext):
     cur_state = await state.get_state()
     

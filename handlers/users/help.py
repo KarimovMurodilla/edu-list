@@ -9,7 +9,5 @@ from keyboards.inline import inline_buttons
 async def bot_help(message: types.Message):
     await message.answer(
         "Komandalar ro'yhati:\n"
-        "/start - Botni ishga tushurish\n"
-        "/chat - Dialogni boshlash\n"
-        "/help - Yordam\n"
+        "/start - Botni ishga tushurish"
     )
