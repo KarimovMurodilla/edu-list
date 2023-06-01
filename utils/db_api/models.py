@@ -69,3 +69,14 @@ class Lyceum(Base):
     qabul = Column(String(150))
     savollar = Column(Text)
     boglanish = Column(Text)
+
+
+class CorrupsionIssue(Base):
+    __tablename__ = "corrupsionissue"
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger)
+    username = Column(String(150))
+    name = Column(String(150))
+    contact = Column(String(150))
+    issue = Column(Text)

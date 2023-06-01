@@ -139,3 +139,21 @@ class Database:
 
             response = await session.execute(select(Lyceum.nomi))
             return response.scalars().all()
+
+    
+    # ---Issues---
+    
+    async def reg_issue(self, user_id: str, username: str, name: str, contact: str, issue: str):
+        """Регистрация пользователя"""
+        async with self.async_session() as session:
+            session: AsyncSession
+            await session.merge(
+                User(
+                    user_id=user_id,
+                    username=username,
+                    name=name,
+                    contact=contact,
+                    issue=issue
+                )
+            )
+            await session.commit()

@@ -60,3 +60,30 @@ async def bot_start(message: types.Message, state: FSMContext):
         await message.answer("Tanlang:", reply_markup = keyboard_buttons.edu_data_menu())
 
         await LyceumDetails.step2.set()
+
+
+# Corrupsion issues
+@dp.message_handler(text="ℹ️ Boshqarma ma'lumotlari", state='*')
+async def bot_start(message: types.Message, state: FSMContext):
+    await message.answer(
+        "O'zbekiston Respublikasi Oliy taʼlim, fan va innovatsiyalar vazirligi Toshkent shahar boshqarmasi.\n\n"
+
+        "Manzili: Toshkent shahar, Olmazor tumani, 2-Chimboy, 96-uy\n\n"
+
+        "Zip code: 100095\n\n"
+
+        "Tel: +998555115544\n\n"
+
+        "Veb-sayt: www.otfiv-tashkent.uz\n\n"
+
+        "Telegram: https://t.me/OTFIV_Tashkent\n\n"
+
+        "Instagram: https://www.instagram.com/p/CsG4tqoN7i0/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==\n\n"
+
+        "Facebook: https://www.facebook.com/profile.php?id=100092411636880&mibextid=ZbWKwL\n\n"
+
+        "Twitter: https://twitter.com/Otfiv_tashkent", 
+            reply_markup=keyboard_buttons.main_category()
+    )
+
+    await message.answer_location(41.353335, 69.211151)

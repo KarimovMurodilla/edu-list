@@ -5,7 +5,10 @@ def main_category():
     menu = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton("🏫 Professional ta'lim muassasalari")
     btn2 = types.KeyboardButton("🏛 Akademik litseylar")
+    btn3 = types.KeyboardButton("⚠️ Korrupsiya holati bo'yicha murojaat")
+    btn4 = types.KeyboardButton("ℹ️ Boshqarma ma'lumotlari")
     menu.add(btn1, btn2)
+    menu.add(btn3, btn4)
 
     return menu
 
