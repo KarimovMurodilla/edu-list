@@ -12,3 +12,9 @@ class LyceumDetails(StatesGroup):
 	step1 = State()
 	step2 = State()
 	step3 = State()
+
+
+class CorrupsionIssue(StatesGroup):
+	get_name = State()
+	get_phone_number = State()
+	get_issue = State()
