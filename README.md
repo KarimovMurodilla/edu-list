@@ -1,3 +1,3 @@
 # edu-list
 
-## Telegram bot fo OTFIV
+## Telegram bot for OTFIV
